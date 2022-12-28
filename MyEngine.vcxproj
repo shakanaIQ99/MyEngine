@@ -146,6 +146,7 @@
     <ClCompile Include="DxWindow.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Object3D.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="ViewProjection.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="DirectXCommon.h" />
     <ClInclude Include="DxWindow.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Object3D.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="ViewProjection.h" />

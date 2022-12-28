@@ -36,6 +36,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	
 	Object3D::StaticInitialize(dxCommon->GetDevice(), DxWindow::window_width, DxWindow::window_height);
+	Model* model = Model::LoadFromOBJ("chr_sword");
+	Model* model2 = Model::LoadFromOBJ("triangle_mat");
 	//Object3D::LoadTexture(1, L"Resources/visual.png");
 	WorldTransform wt1;
 	WorldTransform wt2;
@@ -43,10 +45,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	Object3D* sprite = nullptr;
 	Object3D* sprite2 = nullptr;
 	sprite = Object3D::Create(0,&wt1);
+	sprite->SetModel(model);
 	sprite2 = Object3D::Create(0,&wt2);
+	sprite2->SetModel(model2);
 
 	
-	
+	//sprite2->Wt->translation_.y = -5.0f;
 
 	while (true)
 	{
@@ -85,11 +89,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		if (input->GetKey(DIK_LEFT))
 		{
-			sprite2->Wt->translation_.x -= 0.1f;
+			sprite2->Wt->rotation_.y -= 0.1f;
 		}
 		if (input->GetKey(DIK_RIGHT))
 		{
-			sprite2->Wt->translation_.x += 0.1f;
+			sprite2->Wt->rotation_.y += 0.1f;
 		}
 
 		sprite->Update();
@@ -111,6 +115,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	delete input;
 	delete sprite;
 	delete sprite2;
+	delete model;
+	delete model2;
 
 	delete dxCommon;
 
